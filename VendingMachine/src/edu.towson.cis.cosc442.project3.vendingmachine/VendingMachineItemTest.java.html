@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>VendingMachineItemTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">VendingMachineTest (Mar 6, 2018 5:25:07 PM)</a> &gt; <a href="../../index.html" class="el_group">VendingMachine</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc442.project3.vendingmachine</a> &gt; <span class="el_source">VendingMachineItemTest.java</span></div><h1>VendingMachineItemTest.java</h1><pre class="source lang-java linenums">package edu.towson.cis.cosc442.project3.vendingmachine;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class VendingMachineItemTest.
+ */
+<span class="nc" id="L13">public class VendingMachineItemTest {</span>
+	
+	/** The item. */
+	VendingMachineItem item;
+	
+	
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	
+<span class="nc" id="L27">		item = new VendingMachineItem(&quot;bread&quot;, 3.75);</span>
+			
+<span class="nc" id="L29">	}</span>
+
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception the exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+<span class="nc" id="L38">	}</span>
+
+	/**
+	 * Test vending machine item.
+	 */
+	@Test
+	public void testVendingMachineItem_1(){
+		
+<span class="nc" id="L46">		item = new VendingMachineItem(&quot;bread&quot;, 3.75);</span>
+		
+<span class="nc" id="L48">		assertNotNull(item);</span>
+<span class="nc" id="L49">		assertEquals(&quot;bread&quot;, item.getName());</span>
+<span class="nc" id="L50">		assertEquals(3.75, item.getPrice(), 3.75);</span>
+		
+		
+<span class="nc" id="L53">	}</span>
+	
+	@Test(expected=VendingMachineException.class)
+	public void testVendingMachineItem_2(){
+		
+<span class="nc" id="L58">		item = new VendingMachineItem(&quot;bread&quot;, -3.75);</span>
+		
+<span class="nc" id="L60">		assertNotNull(item);</span>
+		
+<span class="nc" id="L62">		assertEquals(-3.75, item.getPrice(), -3.75);</span>
+<span class="nc" id="L63">	}</span>
+	
+	/**
+	 * Test get name.
+	 */
+	@Test
+	public void testGetName() throws Exception {
+		
+		
+<span class="nc" id="L72">		assertEquals(&quot;bread&quot;, item.getName());</span>
+<span class="nc" id="L73">	}</span>
+
+	/**
+	 * Test get price.
+	 */
+	@Test
+	public void testGetPrice() throws Exception {
+		
+		
+<span class="nc" id="L82">		assertEquals(3.75, item.getPrice(), 0.01);</span>
+<span class="nc" id="L83">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>VendingMachineTest (Mar 6, 2018 5:25:07 PM)</div></body></html>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>VendingMachineTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">VendingMachineTest (Mar 6, 2018 5:25:07 PM)</a> &gt; <a href="../../index.html" class="el_group">VendingMachine</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc442.project3.vendingmachine</a> &gt; <span class="el_source">VendingMachineTest.java</span></div><h1>VendingMachineTest.java</h1><pre class="source lang-java linenums">package edu.towson.cis.cosc442.project3.vendingmachine;
+
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class VendingMachineTest.
+ */
+<span class="fc" id="L12">public class VendingMachineTest {</span>
+	
+	/** The item. */
+	VendingMachineItem item;
+	
+	/** The vm. */
+	VendingMachine vm;
+	
+	
+
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+<span class="fc" id="L29">		item = new VendingMachineItem(&quot;bread&quot;, 3.25);</span>
+		
+<span class="fc" id="L31">		vm = new VendingMachine();</span>
+		
+		
+<span class="fc" id="L34">	}</span>
+
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception the exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+<span class="fc" id="L43">	}</span>
+
+	
+	@Test
+	public void testVendingMachine_1() throws Exception{
+<span class="fc" id="L48">		assertNotNull(vm);</span>
+<span class="fc" id="L49">		assertEquals(0.0, vm.getBalance(), 1.0);</span>
+<span class="fc" id="L50">		assertEquals(0.0, vm.returnChange(), 1.0);</span>
+		
+<span class="fc" id="L52">	}</span>
+	
+	
+	@Test
+	public void testVendingMachine_2() throws Exception{
+<span class="fc" id="L57">		assertNotNull(vm);</span>
+<span class="fc" id="L58">		assertEquals(0.0, vm.getBalance(), 1.0);</span>
+<span class="fc" id="L59">		assertEquals(0.0, vm.returnChange(), 1.0);</span>
+		
+<span class="fc" id="L61">	}</span>
+	
+	/**
+	 * Test add item.
+	 */
+	@Test
+	public void testAddItem_1() throws Exception {
+<span class="fc" id="L68">		vm.balance = 0.1;</span>
+<span class="fc" id="L69">		vm.addItem(item, &quot;A&quot;);</span>
+<span class="fc" id="L70">	}</span>
+
+	@Test
+	public void testAddItem_2() throws Exception {
+<span class="fc" id="L74">		vm.balance = 0.1;</span>
+<span class="fc" id="L75">		vm.addItem(item, &quot;B&quot;);</span>
+<span class="fc" id="L76">	}</span>
+	
+	@Test
+	public void testAddItem_3() throws Exception {
+<span class="fc" id="L80">		vm.balance = 0.1;</span>
+<span class="fc" id="L81">		vm.addItem(item, &quot;C&quot;);</span>
+<span class="fc" id="L82">	}</span>
+	
+	@Test(expected=VendingMachineException.class)
+	public void testAddItem_4(){
+<span class="fc" id="L86">		vm.balance = 0.1;</span>
+<span class="fc" id="L87">		vm.addItem(item, &quot;D&quot;);</span>
+<span class="nc" id="L88">		vm.addItem(item, &quot;f&quot;);</span>
+<span class="nc" id="L89">	}</span>
+	
+	@Test(expected=VendingMachineException.class)
+	public void testAddItem_5(){
+<span class="fc" id="L93">		vm.balance = 0.1;</span>
+<span class="fc" id="L94">		vm.addItem(item, &quot;A&quot;);	</span>
+<span class="nc" id="L95">		vm.addItem(item, &quot;A&quot;);</span>
+<span class="nc" id="L96">	}</span>
+	
+	/**
+	 * Test remove item.
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testRemoveItem_1(){
+		
+<span class="nc" id="L104">		assertEquals(&quot;Remove the Item&quot;, vm.removeItem(&quot;A&quot;), item);</span>
+<span class="nc" id="L105">	}</span>
+
+	@Test
+	public void testRemoveItem_2() throws Exception {
+		
+<span class="fc" id="L110">		vm.addItem(item, &quot;A&quot;);	</span>
+<span class="fc" id="L111">		assertEquals(&quot;Remove the Item&quot;, vm.removeItem(&quot;A&quot;), item);</span>
+<span class="fc" id="L112">	}</span>
+	
+	/**
+	 * Test insert money.
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testInsertMoney_1(){
+		
+<span class="nc" id="L120">		vm.insertMoney(-3.50);	</span>
+		
+<span class="nc" id="L122">	}</span>
+	
+	@Test
+	public void testInsertMoney_2() throws Exception {
+		
+<span class="fc" id="L127">		vm.insertMoney(3.50);	</span>
+<span class="fc" id="L128">		assertEquals(3.50, vm.getBalance(), 0.01);</span>
+<span class="fc" id="L129">	}</span>
+	
+	@Test
+	public void testInsertMoney_3() throws Exception {
+		
+<span class="fc" id="L134">		vm.insertMoney(3.50);	</span>
+<span class="fc" id="L135">		assertEquals(3.50, vm.getBalance(), 0.01);</span>
+<span class="fc" id="L136">	}</span>
+
+
+	/**
+	 * Test get balance.
+	 */
+	@Test
+	public void testGetBalance_1() throws Exception {
+		
+<span class="fc" id="L145">		vm.getBalance();</span>
+		
+<span class="fc" id="L147">	}</span>
+	
+	@Test
+	public void testGetBalance_2() throws Exception {
+		
+<span class="fc" id="L152">		vm.insertMoney(3.50);</span>
+<span class="fc" id="L153">		assertEquals(3.50, vm.getBalance(), 0.01);</span>
+<span class="fc" id="L154">	}</span>
+	
+	@Test
+	public void testGetBalance_3() throws Exception {
+		
+<span class="fc" id="L159">		vm.insertMoney(5.50);</span>
+<span class="fc" id="L160">		assertEquals(5.50, vm.getBalance(), 0.01);</span>
+<span class="fc" id="L161">	}</span>
+	
+	/**
+	 * Test make purchase.
+	 */
+	@Test
+	public void testMakePurchase_1() throws Exception {
+		
+<span class="fc" id="L169">		vm.balance = Double.MAX_VALUE;</span>
+		
+<span class="fc" id="L171">		assertNotNull(item);</span>
+			
+<span class="fc" id="L173">		vm.insertMoney(0);</span>
+<span class="fc" id="L174">		vm.makePurchase(&quot;A&quot;);</span>
+<span class="fc" id="L175">		vm.addItem(item, &quot;A&quot;);</span>
+<span class="fc" id="L176">		assertEquals(&quot;bread&quot;, item.getName());</span>
+			
+<span class="fc" id="L178">		assertEquals(2.50, 3.50, item.getPrice());</span>
+		
+<span class="fc" id="L180">		assertEquals(&quot;Remove the Item&quot;, vm.removeItem(&quot;A&quot;), item);				</span>
+<span class="fc" id="L181">	}</span>
+	
+	@Test
+	public void testMakePurchase_2() throws Exception {
+		
+<span class="fc" id="L186">		vm.balance = Double.MAX_VALUE;</span>
+		
+<span class="fc" id="L188">		assertNotNull(item);</span>
+			
+<span class="fc" id="L190">		vm.insertMoney(0);</span>
+<span class="fc" id="L191">		vm.makePurchase(&quot;A&quot;);</span>
+<span class="fc" id="L192">		vm.addItem(item, &quot;A&quot;);</span>
+		
+<span class="fc" id="L194">		assertEquals(&quot;Remove the Item&quot;, vm.removeItem(&quot;A&quot;), item);				</span>
+<span class="fc" id="L195">	}</span>
+	
+	
+	@Test
+	public void testMakePurchase_3() {
+		
+		//if(( item != null ) &amp;&amp; ( this.balance &gt;= item.getPrice() )) {
+		//	removeItem(code);
+		//	this.balance -= item.getPrice();
+		//	returnCode = true;
+		
+<span class="fc" id="L206">		vm.balance = 4.50;</span>
+<span class="fc" id="L207">		vm.addItem(item, &quot;A&quot;);</span>
+<span class="fc" id="L208">		assertNotNull(item);</span>
+<span class="pc bpc" id="L209" title="1 of 2 branches missed.">		assertTrue(vm.balance &gt;= item.getPrice());</span>
+<span class="fc" id="L210">		vm.removeItem(&quot;A&quot;);	</span>
+<span class="fc" id="L211">	}</span>
+
+
+	/**
+	 * Test return change.
+	 */
+	@Test
+	public void testReturnChange_1() {
+		
+<span class="fc" id="L220">		vm.insertMoney(3.50);	</span>
+<span class="fc" id="L221">		assertEquals(2.50, 3.50, vm.getBalance());</span>
+<span class="fc" id="L222">	}</span>
+
+	@Test
+	public void testReturnChange_2() {
+		
+<span class="fc" id="L227">		vm.insertMoney(5.50);	</span>
+<span class="fc" id="L228">		assertEquals(2.50, 3.50, vm.getBalance());</span>
+<span class="fc" id="L229">	}</span>
+	
+	@Test
+	public void testReturnChange_3() {
+		
+<span class="fc" id="L234">		vm.insertMoney(2.00);	</span>
+<span class="fc" id="L235">		assertEquals(2.50, 3.50, vm.getBalance());</span>
+<span class="fc" id="L236">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>VendingMachineTest (Mar 6, 2018 5:25:07 PM)</div></body></html>
